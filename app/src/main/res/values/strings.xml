@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CourseRoomRx</string>
+    <string name="add_a_task">Add a task</string>
+    <string name="task">task?</string>
+    <string name="description">description</string>
+    <string name="finish_by">finish by?</string>
+    <string name="save">Save</string>
+</resources>
