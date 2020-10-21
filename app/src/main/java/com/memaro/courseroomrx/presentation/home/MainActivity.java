@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.memaro.courseroomrx.database.NoteDao;
-import com.memaro.courseroomrx.database.NoteDatabase;
+import com.memaro.courseroomrx.usecases.database.NoteDao;
+import com.memaro.courseroomrx.usecases.database.NoteDatabase;
 import com.memaro.courseroomrx.R;
 import com.memaro.courseroomrx.entities.Note;
 import com.memaro.courseroomrx.presentation.NoteViewModel;
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private NoteDatabase datebase;
     private NoteDao dao;
 
-    NoteViewModel noteViewModel;
+    private NoteViewModel noteViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
 //        datebase = NoteDatabase.getDatabase(this);
 //        dao = datebase.noteDao();
 
-        noteViewModel = ViewModelProviders.of(this)
-                .get(NoteViewModel.class);
+        noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
 
         noteViewModel.isInserted.observe(this, aBoolean -> {
             if (aBoolean) {
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @SuppressLint("CheckResult")
     private void insertNote() {
         String noteName = noteEditText.getText().toString();
         String desc = descEditText.getText().toString();
@@ -55,20 +53,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill all data", Toast.LENGTH_SHORT).show();
             return;
         }
-        final Note note = new Note();
+         Note note = new Note();
         note.setNote(noteName);
         note.setDesc(desc);
         note.setFinishedBy(finishedBy);
+
         noteViewModel.insertNote(note);
-//        Single.fromCallable((Callable<Object>) () -> {
-//            dao.insertNote(note);
-//            return true;
-//        }).
-//                subscribeOn(Schedulers.io()).
-//                observeOn(AndroidSchedulers.mainThread()).
-//                subscribe(value -> Log.e("success", "success" ),
-//                        error -> Log.e("error", error.getMessage()));
-//    }
 
     }
 

@@ -27,4 +27,5 @@ public class NoteViewModel extends ViewModel {
     public void getNotes() {
         noteUsecase.getNotes();
     }
+
 }

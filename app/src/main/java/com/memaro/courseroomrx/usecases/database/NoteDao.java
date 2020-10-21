@@ -1,4 +1,4 @@
-package com.memaro.courseroomrx.database;
+package com.memaro.courseroomrx.usecases.database;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

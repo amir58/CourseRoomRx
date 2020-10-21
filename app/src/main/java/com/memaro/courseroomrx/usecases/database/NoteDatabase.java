@@ -1,4 +1,4 @@
-package com.memaro.courseroomrx.database;
+package com.memaro.courseroomrx.usecases.database;
 
 import android.content.Context;
 import androidx.room.Database;

@@ -31,13 +31,11 @@ public class NoteUsecase {
 
     @SuppressLint("CheckResult")
     public void insertNote(final Note note) {
-        Single.fromCallable(new Callable<Object>() {
-            @Override
-            public Object call() throws Exception {
-                repository.insertNote(note);
-                return true;
-            }
-        }).subscribeOn(Schedulers.io())
+        Single.fromCallable((Callable<Object>) () -> {
+            repository.insertNote(note);
+            return true;
+        })
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).
                 subscribe(value -> {
                     Log.e("success", "success");

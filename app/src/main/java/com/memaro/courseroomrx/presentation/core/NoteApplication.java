@@ -1,4 +1,4 @@
-package com.memaro.courseroomrx.presentation;
+package com.memaro.courseroomrx.presentation.core;
 
 import android.app.Application;
 import android.content.Context;

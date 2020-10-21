@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.memaro.courseroomrx.database.NoteDao;
-import com.memaro.courseroomrx.database.NoteDatabase;
+import com.memaro.courseroomrx.usecases.database.NoteDao;
+import com.memaro.courseroomrx.usecases.database.NoteDatabase;
 import com.memaro.courseroomrx.R;
 import com.memaro.courseroomrx.entities.Note;
 
